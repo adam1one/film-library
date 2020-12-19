@@ -1,0 +1,20 @@
+{
+    "exts": {
+        "video": [".mp4", ".mkv", ".avi", ".m4v", ".flv", ".mpg"],
+        "subtitle": [".idx", ".sub", ".srt", ".ass", ".lrc", ".smi"],
+        "nfo": [".nfo"],
+        "image": [".jpg"]
+    },
+    "metasuffix": ["-fanart.jpg", "-poster.jpg", "-thumb.jpg", ".jpg"],
+    "api": {
+        "tmdb": "https://api.themoviedb.org/3/",
+        "omdb": "http://www.omdbapi.com/"
+    },
+    "os": {
+        "host": "dl.opensubtitles.org",
+        "useragent": "film-library-maintainer",
+        "format": "srt"
+    },
+    "defaultlang": ["English","eng","en"],
+    "langfilename": ".language"
+}
