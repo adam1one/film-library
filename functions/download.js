@@ -80,7 +80,12 @@ class Download {
                 
                 let subtitleStr;
 
-                if (!encoding || encoding === 'Unknown') encoding = 'UTF-8';
+                if (!encoding || !self.iconv.encodingExists(encoding)) {
+                    const fs = require('fs');
+                    const detectCharacterEncoding = require('detect-character-encoding');
+                    const charsetMatch = detectCharacterEncoding(Buffer.from(result));
+                    encoding = charsetMatch.encoding;
+                }
 
                 try {
                     subtitleStr = self.iconv.decode(Buffer.from(result), encoding);
