@@ -80,7 +80,7 @@ class Download {
                 
                 let subtitleStr;
 
-                if (encoding === 'Unknown') encoding = 'UTF-8';
+                if (!encoding || encoding === 'Unknown') encoding = 'UTF-8';
 
                 try {
                     subtitleStr = self.iconv.decode(Buffer.from(result), encoding);

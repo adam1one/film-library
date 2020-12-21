@@ -23,32 +23,31 @@ class WelcomeWindow {
 
         this.textContainer = this.blessed.box({
             parent: this.contentContainer,
-            top: 0,
+            top: 3,
             left: "center",
-            height: 18,
-            width: 102
+            width: 107,
         });
 
 
         this.leftHalf = this.blessed.box({
             parent: this.textContainer,
-            top: 3,
+            top: 0,
             left:0,
             bottom: 0,
-            width: 38
+            width: 40,
         });  
 
         this.rightHalf = this.blessed.box({
             parent: this.textContainer,
-            top: 3,
+            top: 0,
             right:0,
             bottom: 0,
-            width: 70,
+            width: 65,
         });  
 
         this.leftHeading = this.blessed.text({
             parent: this.leftHalf,
-            left:"center",
+            left: "center",
             top: 0,
             width: 20,
             height: 1,
@@ -77,12 +76,12 @@ class WelcomeWindow {
 
         this.fileTree = this.blessed.text({
             parent: this.leftHalf,
-            left:"center",
+            left: 0,
             top: 2,
             width: 35,
             content: strTree
         }); 
-    
+  
         this.headingFeatures = this.blessed.text({
             parent: this.rightHalf,
             left: "center",
@@ -97,14 +96,11 @@ class WelcomeWindow {
 
         this.features = this.blessed.text({
             parent: this.rightHalf,
-            left: "center",
+            left: 0,
             top: 1,
             height: 8,
-            width: "100%",
-            tags: true,
-            padding: {
-                left: 5
-            }
+            right: 0,
+            tags: true
         });         
 
         this.headingNotes = this.blessed.text({
@@ -118,17 +114,15 @@ class WelcomeWindow {
             },
             content: "Notes"
         });  
-
+      
         this.notes = this.blessed.text({
             parent: this.rightHalf,
             left: "center",
             top: 12,
-            height: 8,
-            width: "100%",
+            height: 6,
+            left: 0,
+            right: 0,
             tags: true,
-            padding: {
-                left: 5
-            }
         }); 
 
         this.proceedButtonText = 'Begin';
