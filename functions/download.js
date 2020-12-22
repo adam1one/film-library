@@ -78,17 +78,15 @@ class Download {
             self.zlib.unzip(data, function(error, result){
                 if (error) return callback({success: false, error: error.message});
                 
-                let subtitleStr;
+                let subtitleStr, subtitleBuffer = Buffer.from(result);
 
                 if (!encoding || !self.iconv.encodingExists(encoding)) {
-                    const fs = require('fs');
-                    const detectCharacterEncoding = require('detect-character-encoding');
-                    const charsetMatch = detectCharacterEncoding(Buffer.from(result));
-                    encoding = charsetMatch.encoding;
+                    const chardet = require('chardet');
+                    encoding = chardet.detect(subtitleBuffer);
                 }
 
                 try {
-                    subtitleStr = self.iconv.decode(Buffer.from(result), encoding);
+                    subtitleStr = self.iconv.decode(subtitleBuffer, encoding);
                 } catch(err) {
                     return {success: false, error: 'Error decoding subtitle file. Encoding: "'+encoding+'"'};
                 }
